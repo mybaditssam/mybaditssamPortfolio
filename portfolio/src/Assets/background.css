@@ -1,0 +1,12 @@
+.background {
+    background-image: url('https://e0.pxfuel.com/wallpapers/130/108/desktop-wallpaper-minimalist-anime-11119010-gif-1920-x-1080-minimalist-anime.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; 
+  }
+  
