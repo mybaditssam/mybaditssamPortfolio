@@ -25,7 +25,7 @@ function ContactForm() {
 
   return (
     <div className="contact-container">
-      <h2>Contact Me</h2>
+      <h2>Contact</h2>
       {isSubmitted ? (
         <div className="alert alert-success" role="alert">
           Your contact form has been submitted successfully!

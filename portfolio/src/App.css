@@ -28,6 +28,22 @@
   color: #61dafb;
 }
 
+.content-container {
+  position: relative; 
+  min-height: 100vh; 
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  position: absolute; 
+  bottom: 0;
+  width: 100%;
+}
+
+
 
 @keyframes App-logo-spin {
   from {
