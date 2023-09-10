@@ -2,8 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import '../Assets/aboutme.css';
 import profileImage from '../Assets/Sam.jpeg'
+//importing all dependencies for the component
 
-function AboutMe({ showProjects, handleToggleProjectsClick }) {
+function AboutMe() {
   return (
     <Card className="about-me-card">
       <Card.Header className="about-me-header">Who Am I?</Card.Header>

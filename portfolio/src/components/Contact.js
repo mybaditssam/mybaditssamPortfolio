@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Assets/contact.css'
+import '../Assets/contact.css';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -9,18 +9,48 @@ function ContactForm() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false); // Track form submission
+  const [errors, setErrors] = useState({}); // Track input field errors
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    // Clear the error message when the user starts typing in the field
+    setErrors({ ...errors, [name]: '' });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to a backend API) if needed
+    const newErrors = {};
 
-    // Set the form as submitted
+    // Check if required fields are empty
+    if (formData.fullName.trim() === '') {
+      newErrors.fullName = 'Full Name is required';
+    }
+    if (formData.email.trim() === '') {
+      newErrors.email = 'Email is required';
+    }
+    if (formData.description.trim() === '') {
+      newErrors.description = 'Description is required';
+    }
+
+    if (formData.email.trim() !== '' && !validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     setIsSubmitted(true);
+  };
+
+  // Email validation function
+  const validateEmail = (email) => {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(email);
   };
 
   return (
@@ -43,8 +73,10 @@ function ContactForm() {
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
+              onBlur={handleChange} 
               required
             />
+            {errors.fullName && <div className="error-message">{errors.fullName}</div>}
           </div>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
@@ -57,8 +89,11 @@ function ContactForm() {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              onBlur={handleChange} 
               required
+              pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
             />
+            {errors.email && <div className="error-message">{errors.email}</div>}
           </div>
           <div className="mb-3">
             <label htmlFor="description" className="form-label">
@@ -70,24 +105,18 @@ function ContactForm() {
               name="description"
               value={formData.description}
               onChange={handleChange}
+              onBlur={handleChange} 
               required
             ></textarea>
+            {errors.description && <div className="error-message">{errors.description}</div>}
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>
       )}
-  
-      {/* Contact details */}
-      <div className="contact-details">
-        <p>Email: samix454@gmail.com</p>
-        <p>Github: mybaditssam</p>
-        <p>Twitter: mybaditssnotsam</p>
-      </div>
     </div>
   );
-
 }
 
 export default ContactForm;

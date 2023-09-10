@@ -20,5 +20,5 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 10%; /* Set a minimum height to ensure space for the icons */
+    min-height: 10%; 
   }

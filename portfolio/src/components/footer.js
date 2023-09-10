@@ -1,6 +1,8 @@
 import React from 'react';
 import '../Assets/footer.css'
+//importing style dependencies
 
+// footer function
 function Footer() {
   return (
     <footer className='footer'>

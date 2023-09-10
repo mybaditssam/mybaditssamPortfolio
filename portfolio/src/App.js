@@ -8,10 +8,11 @@ import Footer from './components/footer';
 import Background from './components/Background';
 
 function App() {
-  const [showAboutMe, setShowAboutMe] = useState(true); // Set to true by default
+  const [showAboutMe, setShowAboutMe] = useState(true); // This will be set to true by default
   const [showProjects, setShowProjects] = useState(false);
   const [showBackground, setShowBackground] = useState(true);
 
+  // Shows Aboutme at the initiation
   useEffect(() => {
     setShowAboutMe(true);
     setShowProjects(false);
