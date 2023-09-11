@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../Assets/resume.css'
 
 function Resume() {
   const frontEndProficiencies = [
@@ -30,7 +31,7 @@ function Resume() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'combined_proficiencies.txt';
+    link.download = 'resume.pdf';
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -47,8 +48,8 @@ function Resume() {
             value={combinedProficiencies}
             readOnly
           ></textarea>
-          <button className="btn btn-primary mt-3" onClick={downloadCombinedProficiencies}>
-            Download Combined Proficiencies
+          <button className="btn btn-primary mt-3 custom-button" onClick={downloadCombinedProficiencies}>
+            Download Resume
           </button>
         </div>
       </div>
